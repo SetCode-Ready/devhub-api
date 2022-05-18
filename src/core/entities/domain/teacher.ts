@@ -1,4 +1,4 @@
-import { UserBase } from './user.base';
+import { UserBase } from '../base/user.base';
 
 export class Teacher extends UserBase {
   specialization: string;
