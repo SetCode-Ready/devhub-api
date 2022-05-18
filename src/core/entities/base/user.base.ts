@@ -1,8 +1,9 @@
 import { BaseEntity } from './base';
 
 export class UserBase extends BaseEntity {
-  email: string;
   name: string;
+  email: string;
+  password: string;
   registry: string;
   birthDate: Date;
 }
