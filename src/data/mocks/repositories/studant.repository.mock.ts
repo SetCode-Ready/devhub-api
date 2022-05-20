@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { ProfessionalInfo } from '../../../core/entities/domain/professional-info';
 import { Studant } from '../../../core/entities/domain/studant';
-import { StudantRepository } from '../../../core/repositories/studant.repository';
+import { IStudantRepository } from '../../../core/repositories/studant.repository';
 import { ICreateProfessionalInfoDTO } from '../../../shared/dto/create-professional-info.dto';
 
 @Injectable()
-export class StudantRepositoryMock implements StudantRepository {
-  students = [];
+export class StudantRepositoryMock implements IStudantRepository {
+  private students = [];
 
   createProfessionalInfo(
     input: ICreateProfessionalInfoDTO,
@@ -19,8 +19,11 @@ export class StudantRepositoryMock implements StudantRepository {
   findByEmail(email: string): Promise<Studant> {
     throw new Error('Method not implemented.');
   }
-  async create(input: any): Promise<Studant> {
+  public async create(input: any): Promise<Studant> {
     const newStudant = new Studant();
+
+    Object.assign(newStudant, { id: 'uuid', ...input });
+
     this.students.push(newStudant);
     return newStudant;
   }
@@ -28,8 +31,7 @@ export class StudantRepositoryMock implements StudantRepository {
     throw new Error('Method not implemented.');
   }
   async findAll(): Promise<Studant[]> {
-    const students = this.students;
-    return students;
+    return this.students;
   }
   updateById(id: string): Promise<Studant> {
     throw new Error('Method not implemented.');
