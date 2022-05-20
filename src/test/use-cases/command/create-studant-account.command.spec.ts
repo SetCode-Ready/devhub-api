@@ -1,3 +1,4 @@
+import { InvalidInputWhenCreateStudent } from './../../../core/exceptions/invalid-input-when-create-studant';
 import { Studant } from './../../../core/entities/domain/studant';
 import { Test, TestingModule } from '@nestjs/testing';
 import { REPOSITORY } from '../../../core/constants/repository.enum';
@@ -38,5 +39,13 @@ describe('Criar uma conta do tipo Aluno', () => {
     );
 
     expect(studant).toBeInstanceOf(Studant);
+  });
+
+  it('Deve lançar um exceção se o argumento input não for passado', async () => {
+    const studantToBeCreated = null;
+
+    await expect(
+      createStudantAccountCommand.execute(studantToBeCreated),
+    ).rejects.toBeInstanceOf(InvalidInputWhenCreateStudent);
   });
 });
