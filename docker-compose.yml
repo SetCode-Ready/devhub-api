@@ -4,7 +4,7 @@ services:
   postgres-compose:
     image: postgres
     environment:
-      POSTGRES_PASSWORD: "readycodedev@20"
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "15432:5432"
     volumes:
@@ -15,8 +15,8 @@ services:
   teste-pgadmin-compose:
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: "setcodeready@mail.com"
-      PGADMIN_DEFAULT_PASSWORD: "readycodedev@20"
+      PGADMIN_DEFAULT_EMAIL: ${POSTGRES_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${POSTGRES_DEFAULT_PASSWROD}
     ports:
       - "16543:80"
     depends_on:
