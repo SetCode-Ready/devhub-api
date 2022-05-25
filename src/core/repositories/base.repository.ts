@@ -3,5 +3,5 @@ export interface BaseRepository<T> {
   findById(id: string): Promise<T>;
   findAll(): Promise<T[]>;
   updateById(id: string, data: any): Promise<T>;
-  deleteById(id: string, data: any): Promise<boolean>;
+  deleteById(id: string): Promise<boolean>;
 }
