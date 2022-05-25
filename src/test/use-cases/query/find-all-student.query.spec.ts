@@ -2,7 +2,7 @@ import { StudantRepositoryMock } from '../../../data/mocks/repositories/studant.
 import { IStudantRepository } from './../../../core/repositories/studant.repository';
 import { FindAllStudentQuery } from './../../../use-cases/query/student/find-all-students.query';
 import { CreateStudantAccountCommand } from '../../../use-cases/command/student/create-studant-account.command';
-describe('Criar uma conta do tipo Aluno', () => {
+describe('Buscar todos os alunos', () => {
   let findAllStudentQuery: FindAllStudentQuery;
   let createStudantAccountCommand: CreateStudantAccountCommand;
   let studantRepository: IStudantRepository;
