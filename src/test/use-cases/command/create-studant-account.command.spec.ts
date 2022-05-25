@@ -1,27 +1,19 @@
 import { InvalidInputWhenCreateStudent } from './../../../core/exceptions/invalid-input-when-create-studant';
 import { Studant } from './../../../core/entities/domain/studant';
-import { Test, TestingModule } from '@nestjs/testing';
-import { REPOSITORY } from '../../../core/constants/repository.enum';
-import { StudantRepositoryMock } from '../../../data/mocks/repositories/studant.repository.mock';
+
 import { CreateStudantAccountCommand } from '../../../use-cases/command/student/create-studant-account.command';
+import { IStudantRepository } from 'src/core/repositories/studant.repository';
+import { StudantRepositoryMock } from '../../../data/mocks/repositories/studant.repository.mock';
 
 describe('Criar uma conta do tipo Aluno', () => {
   let createStudantAccountCommand: CreateStudantAccountCommand;
-  let moduleRef: TestingModule;
+  let studantRepository: IStudantRepository;
 
   beforeAll(async () => {
-    moduleRef = await Test.createTestingModule({
-      providers: [
-        {
-          provide: REPOSITORY.STUDANT_REPOSITORY,
-          useClass: StudantRepositoryMock,
-        },
-        CreateStudantAccountCommand,
-      ],
-    }).compile();
+    studantRepository = new StudantRepositoryMock();
 
-    createStudantAccountCommand = moduleRef.get<CreateStudantAccountCommand>(
-      CreateStudantAccountCommand,
+    createStudantAccountCommand = new CreateStudantAccountCommand(
+      studantRepository,
     );
   });
 

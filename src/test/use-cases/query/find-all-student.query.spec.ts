@@ -1,25 +1,14 @@
-import { FindAllStudentQuery } from '../../../use-cases/student/query/find-all-students.query';
-import { Test, TestingModule } from '@nestjs/testing';
-import { REPOSITORY } from '../../../core/constants/repository.enum';
 import { StudantRepositoryMock } from '../../../data/mocks/repositories/studant.repository.mock';
-
+import { IStudantRepository } from './../../../core/repositories/studant.repository';
+import { FindAllStudentQuery } from './../../../use-cases/query/student/find-all-students.query';
 describe('Criar uma conta do tipo Aluno', () => {
   let findAllStudentQuery: FindAllStudentQuery;
-  let moduleRef: TestingModule;
+  let studantRepository: IStudantRepository;
 
   beforeAll(async () => {
-    moduleRef = await Test.createTestingModule({
-      providers: [
-        {
-          provide: REPOSITORY.STUDANT_REPOSITORY,
-          useValue: StudantRepositoryMock,
-        },
-        FindAllStudentQuery,
-      ],
-    }).compile();
+    studantRepository = new StudantRepositoryMock();
 
-    findAllStudentQuery =
-      moduleRef.get<FindAllStudentQuery>(FindAllStudentQuery);
+    findAllStudentQuery = new FindAllStudentQuery(studantRepository);
   });
 
   it('Deve criar um novo usuário', async () => {
