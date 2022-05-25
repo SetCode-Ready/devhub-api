@@ -3,7 +3,7 @@ import { Studant } from './../../../core/entities/domain/studant';
 import { Test, TestingModule } from '@nestjs/testing';
 import { REPOSITORY } from '../../../core/constants/repository.enum';
 import { StudantRepositoryMock } from '../../../data/mocks/repositories/studant.repository.mock';
-import { CreateStudantAccountCommand } from '../../../use-cases/command/studant/create-studant-account.command';
+import { CreateStudantAccountCommand } from '../../../use-cases/command/student/create-studant-account.command';
 
 describe('Criar uma conta do tipo Aluno', () => {
   let createStudantAccountCommand: CreateStudantAccountCommand;

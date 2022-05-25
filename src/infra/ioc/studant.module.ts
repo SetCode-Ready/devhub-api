@@ -1,4 +1,4 @@
-import { CreateStudantAccountCommand } from './../../use-cases/command/studant/create-studant-account.command';
+import { CreateStudantAccountCommand } from '../../use-cases/command/student/create-studant-account.command';
 import { Module } from '@nestjs/common';
 import { REPOSITORY } from 'src/core/constants/repository.enum';
 import { StudantRepositoryMock } from 'src/data/mocks/repositories/studant.repository.mock';

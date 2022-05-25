@@ -1,4 +1,4 @@
-import { FindAllStudentQuery } from '../../use-cases/query/studant/find-all-students.query';
+import { FindAllStudentQuery } from '../../use-cases/query/student/find-all-students.query';
 import { Controller, Get } from '@nestjs/common';
 
 @Controller()
