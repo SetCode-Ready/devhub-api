@@ -1,15 +1,9 @@
 import { InvalidInputWhenCreateStudent } from '../../../core/exceptions/invalid-input-when-create-studant';
-import { StudantRepositoryMock } from '../../../data/mocks/repositories/studant.repository.mock';
-import { REPOSITORY } from '../../../core/constants/repository.enum';
-import { Inject, Injectable } from '@nestjs/common';
 import { ICreateStudantAccountRequest } from 'src/shared/request-models/create-studant-account.request';
+import { IStudantRepository } from 'src/core/repositories/studant.repository';
 
-@Injectable()
 export class CreateStudantAccountCommand {
-  constructor(
-    @Inject(REPOSITORY.STUDANT_REPOSITORY)
-    private readonly studantRepository: StudantRepositoryMock,
-  ) {}
+  constructor(private readonly studantRepository: IStudantRepository) {}
 
   async execute(input: ICreateStudantAccountRequest) {
     if (!input) {
