@@ -1,4 +1,4 @@
-import { InvalidInputWhenCreateStudent } from '../../../core/exceptions/invalid-input-when-create-studant';
+import { InvalidInputWhenCreateAccount } from '../../../core/exceptions/invalid-input-when-create-studant';
 import { ICreateStudantAccountRequest } from 'src/shared/request-models/create-studant-account.request';
 import { IStudantRepository } from 'src/core/repositories/studant.repository';
 
@@ -7,7 +7,7 @@ export class CreateStudantAccountCommand {
 
   async execute(input: ICreateStudantAccountRequest) {
     if (!input) {
-      throw new InvalidInputWhenCreateStudent(
+      throw new InvalidInputWhenCreateAccount(
         'Envie os dados corretamente!',
         400,
       );

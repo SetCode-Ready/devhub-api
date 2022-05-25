@@ -1,4 +1,4 @@
-import { InvalidInputWhenCreateStudent } from './../../../core/exceptions/invalid-input-when-create-studant';
+import { InvalidInputWhenCreateAccount } from './../../../core/exceptions/invalid-input-when-create-studant';
 import { Studant } from './../../../core/entities/domain/studant';
 
 import { CreateStudantAccountCommand } from '../../../use-cases/command/student/create-studant-account.command';
@@ -38,6 +38,6 @@ describe('Criar uma conta do tipo Aluno', () => {
 
     await expect(
       createStudantAccountCommand.execute(studantToBeCreated),
-    ).rejects.toBeInstanceOf(InvalidInputWhenCreateStudent);
+    ).rejects.toBeInstanceOf(InvalidInputWhenCreateAccount);
   });
 });

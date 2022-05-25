@@ -1,18 +1,17 @@
-import { CreateStudantAccountCommand } from '../../use-cases/command/student/create-studant-account.command';
+import { FindAllStudentQuery } from './../../use-cases/query/student/find-all-students.query';
 import { Module } from '@nestjs/common';
-import { REPOSITORY } from 'src/core/constants/repository.enum';
 import { StudantRepositoryMock } from 'src/data/mocks/repositories/studant.repository.mock';
 import { StudentController } from 'src/presentation/controllers/student.controller';
+import { makeInjectable } from 'src/shared/make-injectable.tool';
+import { CreateStudantAccountCommand } from 'src/use-cases/command/student/create-studant-account.command';
 import { StudantServices } from './studant.services';
 
 @Module({
   controllers: [StudentController],
   providers: [
-    {
-      provide: REPOSITORY.STUDANT_REPOSITORY,
-      useClass: StudantRepositoryMock,
-    },
     StudantServices,
+    makeInjectable(FindAllStudentQuery),
+    makeInjectable(CreateStudantAccountCommand),
   ],
 })
 export class StudantModule {}
