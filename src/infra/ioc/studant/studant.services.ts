@@ -1,3 +1,4 @@
+import { FindStudentByIdQuery } from './../../../use-cases/query/student/find-student-by-id.query';
 import { DeleteStudantAccountCommand } from './../../../use-cases/command/student/delete-studant-account.command';
 import { IUpdateStudant } from 'src/shared/request-models/update-studant.request';
 import { UpdateStudantCommand } from './../../../use-cases/command/student/update-studant.command';
@@ -13,6 +14,8 @@ export class StudantServices {
     private readonly findAllStudentQuery: FindAllStudentQuery,
     @Inject('CreateStudantAccountCommand')
     private readonly createStudantAccountCommand: CreateStudantAccountCommand,
+    @Inject('FindStudentByIdQuery')
+    private readonly findStudentByIdQuery: FindStudentByIdQuery,
     @Inject('UpdateStudantCommand')
     private readonly updateStudantCommand: UpdateStudantCommand,
     @Inject('DeleteStudantAccount')
@@ -21,6 +24,10 @@ export class StudantServices {
 
   async findAllStudent() {
     return this.findAllStudentQuery.execute();
+  }
+
+  async findStudentById(id: string) {
+    return this.findStudentByIdQuery.execute(id);
   }
 
   async createStudantAccount(input: ICreateStudantAccountRequest) {
