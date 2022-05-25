@@ -1,7 +1,6 @@
-import { InvalidInputWhenCreateAccount } from 'src/core/exceptions/invalid-input-when-create-studant';
-import { ITeacherRepository } from 'src/core/repositories/teacher.repository';
-import { ICreateTeacherAccountRequest } from 'src/shared/request-models/create-teacher-account.request';
-
+import { InvalidInputWhenCreateAccount } from './../../../core/exceptions/invalid-input-when-create-studant';
+import { ICreateTeacherAccountRequest } from './../../../shared/request-models/create-teacher-account.request';
+import { ITeacherRepository } from './../../../core/repositories/teacher.repository';
 export class CreateTeacherAccountCommand {
   constructor(private readonly teacherRepository: ITeacherRepository) {}
 

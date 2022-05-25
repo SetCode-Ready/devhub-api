@@ -1,6 +1,6 @@
+import { ITeacherRepository } from './../../../core/repositories/teacher.repository';
 import { Injectable } from '@nestjs/common';
-import { Teacher } from 'src/core/entities/domain/teacher';
-import { ITeacherRepository } from 'src/core/repositories/teacher.repository';
+import { Teacher } from '../../../core/entities/domain/teacher';
 import { ProfessionalInfo } from '../../../core/entities/domain/professional-info';
 import { ICreateProfessionalInfoDTO } from '../../../shared/dto/create-professional-info.dto';
 

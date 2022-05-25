@@ -34,9 +34,6 @@ describe('Criar uma conta do tipo Aluno', () => {
     await createStudantAccountCommand.execute(studantToBeCreated);
 
     const studant = await findAllStudentQuery.execute();
-
-    console.log(studant);
-
     expect(studant).toHaveLength(1);
   });
 });
