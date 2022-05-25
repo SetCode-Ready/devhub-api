@@ -1,8 +1,8 @@
-import { StudentController } from './presentation/controllers/student.controller';
-import { StudantModule } from './infra/ioc/studant.module';
+import { TeacherModule } from './infra/ioc/teacher/teacher.module';
 import { TypeOrmDatabaseModule } from './infra/typeorm/typeorm.module';
 import { Module } from '@nestjs/common';
+import { StudantModule } from './infra/ioc/studant/studant.module';
 @Module({
-  imports: [StudantModule, TypeOrmDatabaseModule],
+  imports: [TeacherModule, StudantModule, TypeOrmDatabaseModule],
 })
 export class AppModule {}

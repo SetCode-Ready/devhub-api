@@ -1,5 +1,5 @@
 import { ICreateStudantAccountRequest } from './../../shared/request-models/create-studant-account.request';
-import { StudantServices } from './../../infra/ioc/studant.services';
+import { StudantServices } from '../../infra/ioc/studant/studant.services';
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { Studant } from 'src/core/entities/domain/studant';
 
