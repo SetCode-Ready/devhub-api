@@ -1,5 +1,5 @@
-import { FindAllStudentQuery } from './../../use-cases/query/student/find-all-students.query';
-import { ICreateStudantAccountRequest } from './../../shared/request-models/create-studant-account.request';
+import { FindAllStudentQuery } from '../../../use-cases/query/student/find-all-students.query';
+import { ICreateStudantAccountRequest } from '../../../shared/request-models/create-studant-account.request';
 import { Inject, Injectable } from '@nestjs/common';
 import { REPOSITORY } from 'src/core/constants/repository.enum';
 import { IStudantRepository } from 'src/core/repositories/studant.repository';
