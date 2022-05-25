@@ -4,7 +4,7 @@ import { Teacher } from './../../../core/entities/domain/teacher';
 import { TeacherRepositoryMock } from './../../../data/mocks/repositories/teacher.repository.mock';
 import { ITeacherRepository } from './../../../core/repositories/teacher.repository';
 
-describe('Criar uma conta do tipo Aluno', () => {
+describe('Criar uma conta do tipo Professor', () => {
   let createTeacherAccountCommand: CreateTeacherAccountCommand;
   let teacherRepository: ITeacherRepository;
 
