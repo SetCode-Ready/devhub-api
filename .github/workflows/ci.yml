@@ -29,7 +29,7 @@ jobs:
         host: ${{ secrets.SSH_HOST_DEV }}
         username: ${{ secrets.SSH_USER_DEV }}
         port: ${{ secrets.SSH_PORT_DEV }}
-        key: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
+        pass: ${{ secrets.SSH_PASS_DEV }}
         source: '.,!node_modules'
         target: '~/app/devhub-api'
         
@@ -39,7 +39,7 @@ jobs:
         host: ${{ secrets.SSH_HOST_DEV }}
         username: ${{ secrets.SSH_USER_DEV }}
         port: ${{ secrets.SSH_PORT_DEV }}
-        key: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
+        pass: ${{ secrets.SSH_PASS_DEV }}
         script: |
           cd ~/app/devhub-api
           pm2 restart devhub-api
