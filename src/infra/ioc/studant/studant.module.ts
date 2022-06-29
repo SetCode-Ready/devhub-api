@@ -1,3 +1,4 @@
+import { FindStudentByIdQuery } from './../../../use-cases/query/student/find-student-by-id.query';
 import { DeleteStudantAccountCommand } from './../../../use-cases/command/student/delete-studant-account.command';
 import { UpdateStudantCommand } from './../../../use-cases/command/student/update-studant.command';
 import { Module } from '@nestjs/common';
@@ -12,6 +13,7 @@ import { StudantServices } from './studant.services';
   providers: [
     StudantServices,
     makeInjectable(FindAllStudentQuery),
+    makeInjectable(FindStudentByIdQuery),
     makeInjectable(CreateStudantAccountCommand),
     makeInjectable(UpdateStudantCommand),
     makeInjectable(DeleteStudantAccountCommand),

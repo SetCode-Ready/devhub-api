@@ -12,13 +12,13 @@ export class StudantServices {
   constructor(
     @Inject('FindAllStudentQuery')
     private readonly findAllStudentQuery: FindAllStudentQuery,
+    // @Inject('FindStudentByIdQuery')
+    // private readonly findStudentByIdQuery: FindStudentByIdQuery,
     @Inject('CreateStudantAccountCommand')
     private readonly createStudantAccountCommand: CreateStudantAccountCommand,
-    @Inject('FindStudentByIdQuery')
-    private readonly findStudentByIdQuery: FindStudentByIdQuery,
     @Inject('UpdateStudantCommand')
     private readonly updateStudantCommand: UpdateStudantCommand,
-    @Inject('DeleteStudantAccount')
+    @Inject('DeleteStudantAccountCommand')
     private readonly deleteStudantAccountCommand: DeleteStudantAccountCommand,
   ) {}
 
@@ -26,9 +26,9 @@ export class StudantServices {
     return this.findAllStudentQuery.execute();
   }
 
-  async findStudentById(id: string) {
-    return this.findStudentByIdQuery.execute(id);
-  }
+  // async findStudentById(id: string) {
+  //   return this.findStudentByIdQuery.execute(id);
+  // }
 
   async createStudantAccount(input: ICreateStudantAccountRequest) {
     return this.createStudantAccountCommand.execute(input);
