@@ -25,11 +25,11 @@ jobs:
       with:
         node-version: 16.x
     
-    - name: Install dependencies
-      run: npm i
+    #- name: Install dependencies
+     # run: npm i
 
-    - name: Run Build
-      run: npm install husky@7 --save-dev \ && npx husky-init \ && npm exec -- github:typicode/husky-4-to-7 --remove-v4-config && npm link webpack && npm run build
+    #- name: Run Build
+     # run: npm link webpack && npm run build
 
     - name: Copy dist/ file to Digital Ocean via SSH
       uses: appleboy/scp-action@master
@@ -50,5 +50,5 @@ jobs:
         password: ${{ secrets.SSH_KEY_DEV }}
         script: |
           cd ~/app/devhub-api
-          npm i
+          npm link webpack && npm i
           npm run build
