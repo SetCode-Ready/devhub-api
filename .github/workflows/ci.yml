@@ -11,6 +11,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Try to connect
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.SSH_HOST_DEV }}
+        username: ${{ secrets.SSH_USER_DEV }}
+        port: ${{ secrets.SSH_PORT_DEV }}
+        key: ${{ secrets.SSH_KEY_DEV }}
  
     - name: Setup Node.js environment
       uses: actions/setup-node@v2.1.5
