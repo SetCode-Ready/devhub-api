@@ -50,5 +50,5 @@ jobs:
         password: ${{ secrets.SSH_KEY_DEV }}
         script: |
           cd ~/app/devhub-api
-          npm run start
-          pm2 restart devhub-api
+          npm i
+          npm run build
