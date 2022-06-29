@@ -12,13 +12,13 @@ export class StudantServices {
   constructor(
     @Inject('FindAllStudentQuery')
     private readonly findAllStudentQuery: FindAllStudentQuery,
-    @Inject('CreateStudantAccountCommand')
-    private readonly createStudantAccountCommand: CreateStudantAccountCommand,
     @Inject('FindStudentByIdQuery')
     private readonly findStudentByIdQuery: FindStudentByIdQuery,
+    @Inject('CreateStudantAccountCommand')
+    private readonly createStudantAccountCommand: CreateStudantAccountCommand,
     @Inject('UpdateStudantCommand')
     private readonly updateStudantCommand: UpdateStudantCommand,
-    @Inject('DeleteStudantAccount')
+    @Inject('DeleteStudantAccountCommand')
     private readonly deleteStudantAccountCommand: DeleteStudantAccountCommand,
   ) {}
 
