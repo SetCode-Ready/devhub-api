@@ -1,0 +1,50 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+ 
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2.1.5
+      with:
+        node-version: 14.x
+    
+    - name: Install dependencies
+      run: npm i
+
+    - name: Run Build
+      run: npm build
+
+    - name: Copy dist/ file to Digital Ocean via SSH
+      uses: appleboy/scp-action@master
+      with:
+        host: ${{ secrets.SSH_HOST_DEV }}
+        username: ${{ secrets.SSH_USER_DEV }}
+        port: ${{ secrets.SSH_PORT_DEV }}
+        key: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
+        source: '.,!node_modules'
+        target: '~/app/devhub-api'
+        
+    - name: Install Dependences, Run Migrations and Restart APP on Digital Ocean
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST_DEV }}
+        username: ${{ secrets.SSH_USER_DEV }}
+        port: ${{ secrets.SSH_PORT_DEV }}
+        key: ${{ secrets.SSH_PRIVATE_KEY_DEV }}
+        script: |
+          cd ~/app/devhub-api
+          pm2 restart devhub-api
